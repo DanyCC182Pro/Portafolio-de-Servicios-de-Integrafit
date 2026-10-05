@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IntegraFit | Portafolio de Servicios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+@property --p{syntax:'<number>';inherits:false;initial-value:0}
+:root{
+--bg:#eefaf2;--bg2:#e1f3e8;--card:#ffffff;--card2:#f6fcf8;--line:#bddac8;--fg:#06170e;--mut:#43604f;
+--g1:#00985a;--g2:#4a8a00;--g3:#00897b;--vio:#5b3df0;--on:#03140b;--glow:0 0 0 transparent;--tglow:none;--grid:rgba(0,120,70,.07);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#030609;--bg2:#06100c;--card:rgba(9,22,16,.74);--card2:rgba(12,30,21,.92);--line:rgba(57,255,136,.2);--fg:#e9fff1;--mut:#8fae9d;--g1:#39ff88;--g2:#c6ff2e;--g3:#19f0d0;--vio:#9a7cff;--on:#02130a;--glow:0 0 24px rgba(57,255,136,.5);--tglow:0 0 18px rgba(57,255,136,.65);--grid:rgba(57,255,136,.06)}}
+:root[data-theme="dark"]{--bg:#030609;--bg2:#06100c;--card:rgba(9,22,16,.74);--card2:rgba(12,30,21,.92);--line:rgba(57,255,136,.2);--fg:#e9fff1;--mut:#8fae9d;--g1:#39ff88;--g2:#c6ff2e;--g3:#19f0d0;--vio:#9a7cff;--on:#02130a;--glow:0 0 24px rgba(57,255,136,.5);--tglow:0 0 18px rgba(57,255,136,.65);--grid:rgba(57,255,136,.06)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(84px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background-color:var(--bg);color:var(--fg);font:400 17px/1.6 Outfit,system-ui,sans-serif;overflow-x:hidden;
+background-image:radial-gradient(900px 520px at 88% -4%,rgba(57,255,136,.13),transparent 62%),radial-gradient(760px 520px at -6% 38%,rgba(25,240,208,.07),transparent 62%),linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+background-size:auto,auto,56px 56px,56px 56px;background-attachment:fixed}
+h1,h2,h3{font-family:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;font-weight:900;text-transform:uppercase;line-height:.92;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--g1);outline-offset:3px;border-radius:8px}
+#bar{position:fixed;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--g2),var(--g1),var(--g3));box-shadow:var(--glow);z-index:99}
+#glow{position:fixed;width:540px;height:540px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(57,255,136,.12),transparent 65%);transform:translate(-50%,-50%);z-index:0;left:60%;top:30%}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+
+/* iconos */
+.ic{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ico{display:grid;place-items:center;width:54px;height:54px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(57,255,136,.18),rgba(57,255,136,.02));margin-bottom:16px;color:var(--g1);position:relative}
+.ico .ic{filter:drop-shadow(0 0 6px currentColor)}
+.mk{filter:drop-shadow(0 0 14px rgba(57,255,136,.6))}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;gap:18px;padding:calc(10px + env(safe-area-inset-top,0px)) 4vw 10px;background:color-mix(in srgb,var(--bg) 72%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:900 26px 'Big Shoulders Display',Impact,sans-serif;letter-spacing:.03em;text-transform:uppercase}
+.brand .mk{width:38px;height:38px}.brand i{color:var(--g1);font-style:normal;text-shadow:var(--tglow)}
+nav .lk{display:flex;gap:4px;margin-left:auto;font-size:14px;font-weight:500;overflow-x:auto;scrollbar-width:none}
+nav .lk::-webkit-scrollbar{display:none}
+nav .lk a{text-decoration:none;color:var(--mut);padding:8px 12px;border-radius:99px;transition:.2s;white-space:nowrap}
+nav .lk a:hover{color:var(--g1);background:rgba(57,255,136,.08)}
+#th{border:1px solid var(--line);background:var(--card2);color:var(--g1);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;cursor:pointer;flex:none}
+#th:hover{box-shadow:var(--glow)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;min-height:100svh;display:flex;align-items:center;padding:calc(110px) 5vw 90px}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;max-width:1240px;margin:auto;width:100%}
+.lockup{display:flex;align-items:center;gap:18px;margin-bottom:26px}
+.lockup .mk{width:clamp(78px,9vw,112px);height:clamp(78px,9vw,112px)}
+.wm{display:block;font:900 clamp(46px,6.4vw,84px)/.88 'Big Shoulders Display',Impact,sans-serif;letter-spacing:.03em;text-transform:uppercase}
+.wm i{font-style:normal;color:var(--g1);text-shadow:var(--tglow)}
+.tag{display:block;margin-top:8px;color:var(--mut);font-size:clamp(14px,1.5vw,18px);letter-spacing:.04em}
+.hero h1{font-size:clamp(76px,11.5vw,178px);letter-spacing:-.005em}
+.hero h1 span{display:block}
+.hero h1 .a{color:var(--fg)}
+.hero h1 .b{color:transparent;-webkit-text-stroke:2px var(--g1);filter:drop-shadow(0 0 14px var(--g1));animation:neon 5.5s infinite}
+.hero h1 .c{background:linear-gradient(90deg,var(--g2),var(--g1) 55%,var(--g3));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 22px rgba(57,255,136,.45))}
+@keyframes neon{0%,17%,21%,62%,100%{opacity:1}19%,60%{opacity:.45}}
+.hero p{max-width:540px;font-size:20px;color:var(--mut);margin:26px 0 30px;font-weight:300}
+.btn{display:inline-block;padding:15px 30px;border:2px solid var(--g1);color:var(--g1);text-decoration:none;font-weight:600;border-radius:99px;transition:.25s;margin:0 12px 12px 0}
+.btn:hover,.btn.f{background:var(--g1);color:var(--on);box-shadow:var(--glow)}
+.btn.f:hover{transform:translateY(-2px)}
+.floor{position:absolute;left:-30%;right:-30%;bottom:-6%;height:46%;z-index:1;background:linear-gradient(90deg,rgba(57,255,136,.28) 1px,transparent 1px) 0 0/70px 70px,linear-gradient(rgba(57,255,136,.28) 1px,transparent 1px) 0 0/70px 70px;transform:perspective(420px) rotateX(62deg);transform-origin:50% 100%;-webkit-mask-image:linear-gradient(transparent,#000 70%);mask-image:linear-gradient(transparent,#000 70%);opacity:.55}
+[data-theme="light"] .floor{opacity:.35}
+.ecg{position:absolute;left:0;right:0;bottom:16%;width:100%;height:120px;z-index:1;opacity:.85;pointer-events:none}
+.ecg path{fill:none;stroke:var(--g1);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:.22 1;stroke-dashoffset:1;filter:drop-shadow(0 0 8px var(--g1));animation:run 4.2s linear infinite}
+.ecg path.dim{stroke-dasharray:none;stroke-dashoffset:0;opacity:.16;animation:none;filter:none}
+@keyframes run{to{stroke-dashoffset:-.22}}
+
+/* escenario hero */
+.stage{position:relative;width:min(540px,100%);aspect-ratio:1;margin:auto}
+.bgmk{position:absolute;inset:-4%;width:108%;height:108%;opacity:.16;animation:spin 60s linear infinite}
+.orbit{position:absolute;inset:0;width:100%;height:100%}
+.orbit .o1{transform-origin:260px 260px;animation:spin 40s linear infinite}
+.orbit .o2{transform-origin:260px 260px;animation:spin 70s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stage .ph{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(6deg);--w:270px}
+.chip{position:absolute;z-index:3;display:flex;gap:8px;align-items:center;padding:9px 15px;border-radius:99px;background:var(--card2);border:1px solid var(--line);backdrop-filter:blur(10px);font-size:13.5px;font-weight:500;box-shadow:var(--glow);animation:float 6s ease-in-out infinite}
+.chip .ic{width:18px;height:18px;color:var(--g1)}
+.chip.c1{left:-3%;top:14%}.chip.c2{right:-4%;top:24%;animation-delay:-2s}.chip.c3{left:-4%;bottom:24%;animation-delay:-4s}.chip.c4{right:-1%;bottom:12%;animation-delay:-1s}
+@keyframes float{50%{transform:translateY(-10px)}}
+
+/* marquee */
+.mq{position:relative;z-index:2;overflow:hidden;background:linear-gradient(90deg,var(--g2),var(--g1),var(--g3));color:var(--on);box-shadow:var(--glow)}
+.mq div{display:flex;width:max-content;animation:mq 26s linear infinite;font:900 34px 'Big Shoulders Display',Impact,sans-serif;text-transform:uppercase;padding:10px 0;letter-spacing:.03em}
+.mq span{padding:0 26px;display:flex;align-items:center;gap:52px}
+.mq span:after{content:"";width:12px;height:12px;background:var(--on);transform:rotate(45deg);flex:none}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* secciones */
+section{position:relative;z-index:1;padding:clamp(70px,10vw,120px) 5vw 10px;max-width:1240px;margin:auto}
+h2{font-size:clamp(46px,8vw,100px);margin-bottom:34px}
+h2 em{font-style:normal;color:var(--g1);text-shadow:var(--tglow)}
+h2:after{content:"";display:block;width:110px;height:5px;border-radius:9px;margin-top:18px;background:linear-gradient(90deg,var(--g2),var(--g1),var(--g3));box-shadow:var(--glow)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.c{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;backdrop-filter:blur(6px);transition:border-color .3s,transform .3s,box-shadow .3s;overflow:hidden}
+.c:before{content:"";position:absolute;inset:0;background:radial-gradient(280px 170px at 0 0,rgba(57,255,136,.14),transparent 72%);pointer-events:none}
+.c:hover{border-color:var(--g1);box-shadow:var(--glow);transform:translateY(-4px)}
+.c h3{font-size:32px;margin-bottom:10px;letter-spacing:.015em;position:relative}
+.c p{margin:0;color:var(--mut);position:relative}.c p b{color:var(--fg);font-weight:600}
+.df{border-left:4px solid var(--g1);background:var(--card);padding:18px 22px;border-radius:0 18px 18px 0;color:var(--mut);max-width:880px;margin:0 0 28px;box-shadow:inset 0 0 40px rgba(57,255,136,.05)}
+.df b{color:var(--g1)}
+.sub{font-size:clamp(32px,4.2vw,50px);margin:46px 0 16px}
+.note{color:var(--mut);max-width:780px}
+
+/* pilares ilustrados */
+.pil{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;padding-top:70px}
+.pc{border:1px solid var(--line);border-radius:26px;overflow:hidden;background:var(--card);transition:.3s}
+.pc:hover{border-color:var(--g1);box-shadow:var(--glow);transform:translateY(-5px)}
+.art{background:radial-gradient(circle at 50% 40%,#0b2217,#030806 72%);display:block;width:100%;height:auto}
+.pc div{padding:20px 24px 24px}.pc h3{font-size:36px;color:var(--g1);text-shadow:var(--tglow);margin-bottom:8px}.pc p{margin:0;color:var(--mut)}
+.glowf{filter:drop-shadow(0 0 7px rgba(57,255,136,.8))}
+
+/* manual */
+.tabs{display:grid;grid-template-columns:270px 1fr;gap:24px}
+.tl{display:flex;flex-direction:column;gap:8px}
+.tl button{font:500 15px Outfit,sans-serif;text-align:left;background:var(--card);color:var(--mut);border:1px solid var(--line);padding:14px 16px;border-radius:15px;cursor:pointer;transition:.2s}
+.tl button:hover{color:var(--fg);border-color:var(--g1)}
+.tl button.on{background:var(--g1);color:var(--on);border-color:var(--g1);box-shadow:var(--glow);font-weight:600}
+.tp{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;background:var(--card);border:1px solid var(--g1);border-radius:28px;padding:34px;box-shadow:var(--glow);min-height:480px;position:relative;overflow:hidden}
+.tp:before{content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(57,255,136,.16),transparent 68%);pointer-events:none}
+.tp h3{font-size:clamp(34px,4.6vw,58px);margin-bottom:14px;color:var(--g1);text-shadow:var(--tglow)}
+.tp p{color:var(--mut)}.tp ol{padding-left:22px;color:var(--mut)}.tp li{margin:10px 0}.tp li b,.tp p b{color:var(--fg);font-weight:600}
+.pw{position:relative;z-index:1;display:flex;justify-content:center}
+
+/* telefono */
+.ph{--w:250px;position:relative;width:var(--w);aspect-ratio:9/18.4;font-size:calc(var(--w)*.047);border-radius:calc(var(--w)*.15);border:2px solid #39ff88;background:linear-gradient(#08150f,#040a07);box-shadow:0 0 26px rgba(57,255,136,.45),inset 0 0 40px rgba(57,255,136,.08);padding:.9em;color:#eafff2;font-family:Outfit,system-ui,sans-serif;line-height:1.35;flex:none}
+.ph .nt{position:absolute;top:.9em;left:50%;transform:translateX(-50%);width:34%;height:1.3em;border-radius:1em;background:#000;z-index:2}
+.sc{display:flex;flex-direction:column;gap:.75em;height:100%;padding-top:2.1em}
+.ph .h{font:800 1.35em 'Outfit',sans-serif}
+.ph .h2{font:700 1em Outfit,sans-serif;color:#9fb8a9;margin-top:.2em}
+.ph .ctr{display:flex;flex-direction:column;align-items:center;gap:.6em;margin:.4em 0}
+.ph .mk.sm{width:5.2em;height:5.2em}
+.ph .fld{border:1px solid #24402f;background:#0d1c15;border-radius:.9em;padding:.8em 1em;color:#7f9a8b}
+.ph .fld b{color:#eafff2;font-weight:600}
+.ph .otp{display:flex;gap:.5em;justify-content:center}
+.ph .otp i{width:2.5em;height:2.8em;border:1px solid #39ff88;border-radius:.7em;display:grid;place-items:center;font-style:normal;font-weight:700;box-shadow:0 0 10px rgba(57,255,136,.35)}
+.ph .chk{display:flex;gap:.6em;align-items:center;font-size:.9em;color:#9fb8a9}
+.ph .chk i{width:1.2em;height:1.2em;border-radius:.35em;background:#39ff88;flex:none}
+.ph .bt{background:#39ff88;color:#02130a;text-align:center;font-weight:700;border-radius:.9em;padding:.8em;box-shadow:0 0 16px rgba(57,255,136,.5)}
+.ph .bt.warn{background:transparent;color:#ffb86b;border:1px solid #ffb86b;box-shadow:none}
+.ph .chips{display:flex;flex-wrap:wrap;gap:.45em}
+.ph .chips span{border:1px solid #24402f;border-radius:99px;padding:.4em .85em;font-size:.92em;color:#b9d0c2;background:#0d1c15}
+.ph .chips span.on{background:#39ff88;color:#02130a;border-color:#39ff88;font-weight:700}
+.ph .li{display:flex;justify-content:space-between;align-items:center;padding:.7em .9em;border-radius:.9em;background:#0d1c15;border:1px solid #1d3326}
+.ph .li b{color:#39ff88}.ph .okc{color:#c6ff2e!important}
+.ph .row{display:flex;justify-content:space-between;color:#9fb8a9}.ph .row b{color:#c6ff2e}
+.ph .prog{height:.6em;border-radius:9px;background:#16281f;overflow:hidden}.ph .prog i{display:block;height:100%;background:linear-gradient(90deg,#c6ff2e,#39ff88);box-shadow:0 0 10px #39ff88}
+.ph .rgs{display:flex;gap:.7em;justify-content:center}
+.rgw{display:flex;flex-direction:column;align-items:center;gap:.3em}.rgw small{font-size:.8em;color:#8fae9d}
+.rg{--p:var(--t);width:4.9em;height:4.9em;border-radius:50%;background:conic-gradient(var(--c) calc(var(--p)*1%),#1b2a22 0);display:grid;place-items:center;position:relative;animation:fill 1.8s .4s cubic-bezier(.2,.8,.2,1) backwards;filter:drop-shadow(0 0 6px var(--c))}
+.rg:after{content:"";position:absolute;inset:.55em;background:#09130e;border-radius:50%}.rg em{position:relative;z-index:1;font-style:normal;font-weight:700;font-size:.85em}
+@keyframes fill{from{--p:0}}
+.ph .ai{background:#10261b;border:1px solid #2a4a38;border-radius:1em;padding:.8em;font-size:.95em;color:#cdf5dc}
+.ph .ai b{color:#39ff88}
+.ph .bars{display:flex;gap:.5em;align-items:flex-end;height:4.2em}.ph .bars i{flex:1;background:linear-gradient(#9a7cff,#6a4cff);border-radius:.35em;box-shadow:0 0 10px rgba(154,124,255,.55)}
+.ph .mc{display:grid;grid-template-columns:6em 1fr;gap:.5em;align-items:center;color:#9fb8a9;font-size:.95em}
+.ph .bub{padding:.8em 1em;border-radius:1.1em;max-width:88%}
+.ph .bub.me{align-self:flex-end;background:#39ff88;color:#02130a;font-weight:600;border-bottom-right-radius:.3em}
+.ph .bub.ia{background:#10261b;border:1px solid #2a4a38;border-bottom-left-radius:.3em;color:#cdf5dc}
+.ph .bub small{display:block;color:#8fae9d;margin-top:.4em}
+.ph .acts{display:flex;gap:.45em}.ph .acts span{flex:1;text-align:center;border:1px solid #39ff88;color:#39ff88;border-radius:.8em;padding:.5em 0;font-size:.9em}
+.ph .pro{display:flex;gap:.8em;align-items:center;padding:.7em;border-radius:1em;background:#0d1c15;border:1px solid #1d3326}
+.ph .pro small{display:block;color:#8fae9d}
+.ph .av{width:2.8em;height:2.8em;border-radius:50%;display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,#c6ff2e,#19f0d0);color:#02130a;flex:none}
+.ph .tgl{display:flex;justify-content:space-between;align-items:center;padding:.65em .9em;border-radius:.9em;background:#0d1c15;border:1px solid #1d3326}
+.ph .tgl u{width:2.6em;height:1.4em;border-radius:99px;background:#24402f;position:relative;flex:none;text-decoration:none}
+.ph .tgl u:after{content:"";position:absolute;top:.15em;left:.15em;width:1.1em;height:1.1em;border-radius:50%;background:#9fb8a9;transition:.2s}
+.ph .tgl u.on{background:#39ff88;box-shadow:0 0 10px rgba(57,255,136,.6)}.ph .tgl u.on:after{left:1.35em;background:#02130a}
+.ph .tb{display:flex;justify-content:space-between;margin-top:auto;padding:.65em .9em;border-radius:1.4em;background:#0f1d16;border:1px solid #20382b}
+.ph .tb .ic{width:1.9em;height:1.9em;color:#6f8b7b;stroke-width:1.8}.ph .tb .on .ic{color:#39ff88;filter:drop-shadow(0 0 6px #39ff88)}
+.trio{display:flex;justify-content:center;align-items:center;gap:0;margin:0 auto 14px;padding:20px 0}
+.trio .ph{--w:230px}
+.trio .ph:nth-child(1){transform:rotate(-7deg) translateX(26px)}
+.trio .ph:nth-child(2){--w:262px;z-index:2;transform:translateY(-14px)}
+.trio .ph:nth-child(3){transform:rotate(7deg) translateX(-26px)}
+.shot figcaption{color:var(--mut);font-size:18px;text-align:center;max-width:720px;margin:0 auto 34px}
+.shot{margin:0}
+
+/* numeros, tablas */
+.stat{display:flex;gap:44px;flex-wrap:wrap;margin:10px 0 30px}.stat small{display:block;color:var(--mut)}
+.big{font:900 clamp(60px,10vw,130px) 'Big Shoulders Display',Impact,sans-serif;line-height:.95;background:linear-gradient(90deg,var(--g2),var(--g1),var(--g3));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(57,255,136,.35))}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:22px;background:var(--card);margin:10px 0}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th,td{text-align:left;padding:15px 20px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:800 20px 'Big Shoulders Display',Impact,sans-serif;text-transform:uppercase;letter-spacing:.05em;color:var(--g1);background:rgba(57,255,136,.07)}
+td:first-child{font-weight:500}td+td{color:var(--mut)}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:rgba(57,255,136,.05)}
+.tot td{font-weight:700;color:var(--g1)!important;background:rgba(57,255,136,.08);text-shadow:var(--tglow)}
+
+/* planes */
+.pl{position:relative;border-radius:26px;padding:30px;border:1px solid var(--line);background:var(--card);transition:.3s}
+.pl:hover{border-color:var(--g1);transform:translateY(-4px)}
+.pl.h{border:2px solid var(--g1);box-shadow:var(--glow);background:linear-gradient(160deg,rgba(57,255,136,.12),var(--card) 60%)}
+.pl h3{font-size:42px;margin-bottom:14px}.pl.h h3{color:var(--g1);text-shadow:var(--tglow)}
+.pl ul{list-style:none;padding:0;margin:0;color:var(--mut)}
+.pr{font:900 clamp(46px,5.4vw,64px)/1 'Big Shoulders Display',Impact,sans-serif;color:var(--g1);text-shadow:var(--tglow);margin:0 0 4px;letter-spacing:.01em}
+.pr small{font:400 15px Outfit,sans-serif;color:var(--mut);text-shadow:none;letter-spacing:0}
+.pr.fr{font-size:clamp(28px,3vw,36px);padding-top:10px}
+.pa{color:var(--mut);font-size:14px;margin:0 0 16px;min-height:22px}
+.pl li{padding:8px 0 8px 30px;position:relative;border-top:1px solid var(--line)}
+.pl li:before{content:"";position:absolute;left:2px;top:15px;width:14px;height:8px;border-left:2.5px solid var(--g1);border-bottom:2.5px solid var(--g1);transform:rotate(-45deg)}
+
+/* presupuesto */
+.bud{display:grid;gap:14px}
+.bud>div{display:grid;grid-template-columns:minmax(150px,300px) 1fr 120px;gap:16px;align-items:center;font-size:15px}
+.bud>div span:last-child{text-align:right;font-weight:600;color:var(--g1)}
+.trk{height:16px;border-radius:9px;background:rgba(57,255,136,.1);overflow:hidden}
+.trk i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--g3),var(--g1),var(--g2));width:0;transition:width 1.5s cubic-bezier(.2,.8,.2,1);box-shadow:var(--glow)}
+.in .trk i{width:var(--w)}
+
+/* contacto */
+.ct{text-align:center;padding:clamp(100px,14vw,170px) 5vw 120px;max-width:none;overflow:hidden}
+.ct .mk{position:absolute;left:50%;top:50%;width:min(720px,120vw);height:min(720px,120vw);transform:translate(-50%,-50%);opacity:.1;z-index:-1;animation:spin 90s linear infinite}
+.ct h2{font-size:clamp(60px,12vw,180px)}.ct h2:after{margin:22px auto 0}
+.ct p{color:var(--mut);font-size:20px}
+footer{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center;color:var(--mut);padding:30px 5vw calc(40px + env(safe-area-inset-bottom,0px));font-size:14px;border-top:1px solid var(--line)}
+footer .mk{width:28px;height:28px;filter:none}
+
+.rv{transition:opacity 1s}
+.js .rv{opacity:0}.js .rv.in{opacity:1}
+
+@media (max-width:980px){
+.hero-in{grid-template-columns:1fr}.stage{margin-top:20px}
+.tabs{grid-template-columns:1fr}.tl{flex-direction:row;overflow-x:auto}.tl button{white-space:nowrap}
+.tp{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+.brand span{display:none}
+.bud>div{grid-template-columns:1fr 100px}.bud .trk{grid-column:1/-1;order:3}
+.trio{transform:scale(.62);margin:-80px 0 -90px}
+.chip{font-size:12px;padding:7px 11px}.chip.c1{left:0}.chip.c2{right:0}.chip.c3{left:0}.chip.c4{right:0}
+.mq div{font-size:26px}
+.stage .ph{--w:230px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1}.trk i{width:var(--w)}.ecg path{stroke-dasharray:none;stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('if-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+<!-- sprite de iconos y logo -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+<defs>
+<linearGradient id="gm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c6ff2e"/><stop offset=".5" stop-color="#39ff88"/><stop offset="1" stop-color="#19f0d0"/></linearGradient>
+<radialGradient id="rg1" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#39ff88" stop-opacity=".34"/><stop offset="1" stop-color="#39ff88" stop-opacity="0"/></radialGradient>
+</defs>
+<symbol id="mark" viewBox="0 0 100 100">
+<circle cx="50" cy="54" r="37" fill="none" stroke="url(#gm)" stroke-width="7" stroke-linecap="round" stroke-dasharray="188 45" transform="rotate(-8 50 54)"/>
+<path d="M21 56h14l6-17 10 33 8-23 5 7h15" fill="none" stroke="url(#gm)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M68 28C68 15 79 8 92 9c1 13-6 24-24 19z" fill="url(#gm)"/>
+<path d="M71 25c5-5 10-8 15-10" fill="none" stroke="#02130a" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+</symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+<symbol id="i-ai" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><path d="M12 9.5l.9 1.9 1.9.9-1.9.9-.9 1.9-.9-1.9-1.9-.9 1.9-.9z"/></symbol>
+<symbol id="i-pro" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><path d="M19 8v6M16 11h6"/></symbol>
+<symbol id="i-access" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5l7 1.5 7-1.5M12 10v4.5M12 14.5l-3.5 6M12 14.5l3.5 6"/></symbol>
+<symbol id="i-watch" viewBox="0 0 24 24"><rect x="7" y="6" width="10" height="12" rx="3"/><path d="M9 6l.7-3h4.6l.7 3M9 18l.7 3h4.6l.7-3"/><path d="M12 10v2.5l1.7 1"/></symbol>
+<symbol id="i-medal" viewBox="0 0 24 24"><circle cx="12" cy="14.5" r="5.5"/><path d="M8.5 10.5L6 3h4l2 4 2-4h4l-2.5 7.5"/><path d="M12 12.2l.9 1.8 2 .3-1.4 1.4.3 2-1.8-1-1.8 1 .3-2-1.4-1.4 2-.3z"/></symbol>
+<symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V5l8-2v18M12 8h8v13M2 21h20"/><path d="M7.5 8h1M7.5 12h1M7.5 16h1M15 12h1M15 16h1"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3M12 15v2"/></symbol>
+<symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"/></symbol>
+<symbol id="i-apple" viewBox="0 0 24 24"><path d="M12 7c-2-2-6-1.5-7 2-1 3.5 1 9 4 11 1.5 1 2.2.3 3 .3s1.5.7 3-.3c3-2 5-7.5 4-11-1-3.5-5-4-7-2z"/><path d="M12 7c0-2 1-3.5 3-4"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+<symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3c3.5 4.5 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 2.5-6.5 6-11z"/></symbol>
+<symbol id="i-pulse" viewBox="0 0 24 24"><path d="M2 12h4l2.5-6 4 12 2.5-6H22"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4.5 4.5 0 0 1-.5-9A6 6 0 0 1 18 9.5a4 4 0 0 1-.5 8.5z"/></symbol>
+<symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c.8-4.2 4-6.5 8-6.5s7.2 2.3 8 6.5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.8 2.8L16 9.5"/></symbol>
+<symbol id="i-law" viewBox="0 0 24 24"><path d="M12 3v18M7 21h10M5 7h14"/><path d="M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/></symbol>
+<symbol id="i-audit" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8M8 10.5l1.8 1.8L13 9"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></symbol>
+<symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.5"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 12.5l9 5 9-5M3 16.5l9 5 9-5"/></symbol>
+<symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h14l-3-3M20 16H6l3 3"/></symbol>
+<symbol id="i-puzzle" viewBox="0 0 24 24"><path d="M5 9h3a2 2 0 1 1 4 0h3v3a2 2 0 1 1 0 4v4H5v-4a2 2 0 1 0 0-4z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-8-4.7-8-10.2A4.3 4.3 0 0 1 12 7.5a4.3 4.3 0 0 1 8 2.3C20 15.3 12 20 12 20z"/></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 9.5V21h14V9.5"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+</svg>
+
+<div id="bar"></div><div id="glow"></div>
+
+<nav>
+  <a class="brand" href="#top" aria-label="IntegraFit, inicio"><svg class="mk" viewBox="0 0 100 100"><use href="#mark"/></svg><span>INTEGRA<i>FIT</i></span></a>
+  <div class="lk"><a href="#valor">Valor</a><a href="#manual">Manual</a><a href="#usos">Usos</a><a href="#usuarios">Usuarios</a><a href="#presentacion">Planes</a><a href="#producto">Producto</a><a href="#costos">Costos</a><a href="#contacto">Contacto</a></div>
+  <button id="th" aria-label="Cambiar entre tema oscuro y claro" title="Cambiar tema"><svg class="ic" style="width:20px;height:20px"><use href="#i-sun"/></svg></button>
+</nav>
+
+<header class="hero" id="top">
+  <div class="floor"></div>
+  <svg class="ecg" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true"><path class="dim" pathLength="1" d="M0 70H300l20 0 15-42 22 92 18-72 12 22H620h140l15-32 22 72 18-52 10 12H1200"/><path pathLength="1" d="M0 70H300l20 0 15-42 22 92 18-72 12 22H620h140l15-32 22 72 18-52 10 12H1200"/></svg>
+  <div class="hero-in">
+    <div>
+      <div class="lockup">
+        <svg class="mk" viewBox="0 0 100 100" role="img" aria-label="Logo de IntegraFit"><use href="#mark"/></svg>
+        <div><b class="wm">INTEGRA<i>FIT</i></b><span class="tag">Tu progreso, todo en un solo lugar</span></div>
+      </div>
+      <h1><span class="a">Entrena.</span><span class="b">Come.</span><span class="c">Vive.</span></h1>
+      <p>Una sola plataforma con Inteligencia Artificial para tu entrenamiento, tu alimentación y tu bienestar. Con profesionales de la salud, accesible para todos.</p>
+      <div><a class="btn f" href="#manual">Ver el manual de usuario</a><a class="btn" href="#presentacion">Ver planes</a></div>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <svg class="bgmk" viewBox="0 0 100 100"><use href="#mark"/></svg>
+      <svg class="orbit" viewBox="0 0 520 520"><circle class="o1" cx="260" cy="260" r="248" fill="none" stroke="#39ff88" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="4 14"/><circle class="o2" cx="260" cy="260" r="205" fill="none" stroke="#19f0d0" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="40 18 6 18"/><circle cx="260" cy="260" r="150" fill="url(#rg1)"/></svg>
+      <div id="heroPhone"></div>
+      <div class="chip c1"><svg class="ic"><use href="#i-dumbbell"/></svg>Entrenamiento</div>
+      <div class="chip c2"><svg class="ic"><use href="#i-ai"/></svg>IA personal</div>
+      <div class="chip c3"><svg class="ic"><use href="#i-apple"/></svg>Alimentación</div>
+      <div class="chip c4"><svg class="ic"><use href="#i-pro"/></svg>Profesionales</div>
+    </div>
+  </div>
+</header>
+
+<div class="mq" aria-hidden="true"><div><span>Todo en un solo lugar</span><span>IA que recomienda</span><span>Profesionales reales</span><span>Accesible</span><span>Datos protegidos</span><span>Todo en un solo lugar</span><span>IA que recomienda</span><span>Profesionales reales</span><span>Accesible</span><span>Datos protegidos</span></div></div>
+
+<section class="pil" aria-label="Los tres pilares de IntegraFit">
+  <article class="pc">
+    <svg class="art" viewBox="0 0 420 300" role="img" aria-label="Barra con pesas y línea de pulso cardíaco"><circle cx="210" cy="150" r="140" fill="url(#rg1)"/>
+      <path d="M10 250H128l14-30 18 62 16-46 10 14H410" fill="none" stroke="url(#gm)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="glowf" opacity=".85"/>
+      <g fill="none" stroke="url(#gm)" stroke-width="4" stroke-linejoin="round" class="glowf"><rect x="36" y="142" width="348" height="14" rx="7"/><rect x="82" y="80" width="28" height="138" rx="10"/><rect x="114" y="100" width="20" height="98" rx="7"/><rect x="310" y="80" width="28" height="138" rx="10"/><rect x="286" y="100" width="20" height="98" rx="7"/><rect x="58" y="126" width="16" height="46" rx="5"/><rect x="346" y="126" width="16" height="46" rx="5"/></g>
+      <g fill="#c6ff2e" class="glowf"><path d="M338 36l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/><path d="M78 40l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></g></svg>
+    <div><h3>Entrenamiento</h3><p>Rutinas, ejercicios y progreso.</p></div>
+  </article>
+  <article class="pc">
+    <svg class="art" viewBox="0 0 420 300" role="img" aria-label="Plato con anillo de macronutrientes y una manzana"><circle cx="210" cy="150" r="140" fill="url(#rg1)"/>
+      <g fill="none" stroke-linecap="round"><circle cx="210" cy="150" r="98" stroke="#14281e" stroke-width="15"/><g class="glowf" transform="rotate(-90 210 150)"><circle cx="210" cy="150" r="98" stroke="#39ff88" stroke-width="15" stroke-dasharray="190 426"/><circle cx="210" cy="150" r="98" stroke="#c6ff2e" stroke-width="15" stroke-dasharray="130 486" stroke-dashoffset="-212"/><circle cx="210" cy="150" r="98" stroke="#19f0d0" stroke-width="15" stroke-dasharray="86 530" stroke-dashoffset="-366"/></g><circle cx="210" cy="150" r="70" stroke="url(#gm)" stroke-width="2" stroke-dasharray="3 9"/></g>
+      <g stroke="url(#gm)" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="glowf"><use href="#i-apple" x="166" y="106" width="88" height="88"/></g>
+      <g fill="none" stroke="url(#gm)" stroke-width="4" stroke-linecap="round" class="glowf"><path d="M44 80v50M32 80v30a12 12 0 0 0 24 0V80M44 132v88M44 80v0"/><path d="M376 80c-14 14-16 44-8 64h8zM376 144v76"/></g></svg>
+    <div><h3>Alimentación</h3><p>Busca alimentos en la base nutricional y registra la porción.</p></div>
+  </article>
+  <article class="pc">
+    <svg class="art" viewBox="0 0 420 300" role="img" aria-label="Luna, estrellas y gota de agua que representan sueño e hidratación"><circle cx="210" cy="150" r="140" fill="url(#rg1)"/>
+      <path d="M232 62A86 86 0 1 0 282 214 66 66 0 0 1 232 62z" fill="none" stroke="url(#gm)" stroke-width="4" stroke-linejoin="round" class="glowf"/>
+      <g stroke="url(#gm)" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="glowf"><use href="#i-drop" x="290" y="140" width="84" height="84"/></g>
+      <g fill="#c6ff2e" class="glowf"><path d="M330 56l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/><path d="M60 62l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/><path d="M366 112l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="M120 248l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></g>
+      <path d="M20 262h96l10-20 14 40 12-30 8 10H400" fill="none" stroke="url(#gm)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".7" class="glowf"/></svg>
+    <div><h3>Bienestar</h3><p>Anota agua, sueño y estrés; revisa reportes y recetas.</p></div>
+  </article>
+</section>
+
+<section id="valor" class="rv">
+  <h2>Valor <em>agregado</em></h2>
+  <div class="grid">
+    <div class="c" data-i="link"><h3>Todo conectado</h3><p>Entrenamiento, comida, sueño, hidratación y estrés en un solo perfil, en vez de 4 apps separadas.</p></div>
+    <div class="c" data-i="ai"><h3>IA personal</h3><p>Recomendaciones basadas en tus datos y un chatbot que responde en cualquier momento. Orienta, no reemplaza a nadie.</p></div>
+    <div class="c" data-i="pro"><h3>Profesionales</h3><p>Entrenadores, nutricionistas y fisioterapeutas con protocolos compartidos y seguimiento remoto.</p></div>
+    <div class="c" data-i="access"><h3>Inclusión real</h3><p>Lector de pantalla, subtítulos, alto contraste y rutinas adaptadas, validadas con usuarios con discapacidad.</p></div>
+    <div class="c" data-i="watch"><h3>Wearables</h3><p>Conecta tu reloj o pulsera y tu actividad se registra sola.</p></div>
+    <div class="c" data-i="medal"><h3>Motivación</h3><p>Metas, insignias, puntos y rachas para mantener la constancia.</p></div>
+    <div class="c" data-i="building"><h3>Empresas y gyms</h3><p>Paneles con indicadores anónimos para medir el bienestar laboral y fidelizar miembros.</p></div>
+    <div class="c" data-i="shield"><h3>Datos seguros</h3><p>Cifrado, control de acceso y cumplimiento de la Ley 1581 de 2012.</p></div>
+  </div>
+</section>
+
+<section id="manual" class="rv">
+  <h2>Manual de <em>usuario</em></h2>
+  <div class="tabs"><div class="tl" id="tl" role="tablist"></div><div class="tp" id="tp" aria-live="polite"></div></div>
+</section>
+
+<section id="usos" class="rv"><h2>Usos del <em>servicio</em></h2>
+<p class="df"><b>Definición.</b> Responde tres preguntas: para qué se usa, cómo se usa y cuáles son sus principales aplicaciones.</p>
+<div class="grid"><div class="c" data-i="target"><h3>¿Para qué se usa?</h3><p>Para centralizar entrenamiento, alimentación y bienestar en un solo lugar, con recomendaciones de IA y acompañamiento de profesionales, sin depender de varias apps.</p></div><div class="c" data-i="route"><h3>¿Cómo se usa?</h3><p>Te registras, creas tu perfil y objetivo, registras rutinas, comidas, sueño y estrés, recibes recomendaciones y, si quieres, te vinculas con un profesional o un wearable.</p></div></div>
+<h3 class="sub">Principales aplicaciones</h3>
+<p class="note">IntegraFit es un servicio de salud y bienestar, así que no tiene aplicaciones industriales, agrícolas ni metalúrgicas. Las suyas son personales y de servicios:</p>
+<div class="grid" style="margin-top:20px"><div class="c" data-i="user"><h3>Individual</h3><p>Personas que entrenan por su cuenta y quieren seguimiento.</p></div><div class="c" data-i="pro"><h3>Profesional</h3><p>Entrenadores, nutricionistas y fisios gestionan clientes remotamente.</p></div><div class="c" data-i="building"><h3>Corporativo B2B</h3><p>Bienestar laboral medible para empresas.</p></div><div class="c" data-i="dumbbell"><h3>Institucional</h3><p>Gimnasios que fidelizan con valor digital.</p></div><div class="c" data-i="access"><h3>Inclusivo</h3><p>Rutinas y contenido adaptado para personas con discapacidad.</p></div></div></section>
+
+<section id="usuarios" class="rv"><h2>Los <em>usuarios</em></h2>
+<p class="df"><b>Definición.</b> Establece dónde están los consumidores finales y cómo son: hábitos, ocupación, ingresos, edad, escolaridad, estado civil y estilo de vida, además de sus intereses y opiniones frente al servicio.</p>
+<div class="stat"><div><div class="big">18–45</div><small>años, segmento principal</small></div><div><div class="big">1.000</div><small>usuarios meta a 3 meses del lanzamiento</small></div><div><div class="big">50</div><small>profesionales vinculados al mes 8</small></div></div>
+<div class="tw"><table><thead><tr><th>Variable</th><th>Perfil de IntegraFit</th></tr></thead><tbody>
+<tr><td>Distribución espacial</td><td>Zonas urbanas de Colombia con internet y dispositivos inteligentes; luego, otras ciudades según crezca la red de profesionales</td></tr>
+<tr><td>Edad y sexo</td><td>18 a 45 años; ambos sexos</td></tr>
+<tr><td>Ingresos y estrato</td><td>Clase media, con capacidad de pagar suscripción y servicios profesionales</td></tr>
+<tr><td>Escolaridad y ocupación</td><td>Estudiantes, profesionales y trabajadores con vida activa y manejo de tecnología móvil</td></tr>
+<tr><td>Estado civil y credo</td><td>Sin restricción</td></tr>
+<tr><td>Deportes y entretenimiento</td><td>Gimnasio, running, ciclismo, yoga y entrenamiento en casa (perfil esperado)</td></tr>
+<tr><td>Hábitos de consumo</td><td>Ya usan apps de entrenamiento o dieta, pero les molesta tenerlas desconectadas</td></tr>
+<tr><td>Rituales de compra</td><td>Suscripción mensual o anual: funciones básicas gratis, IA y profesional de pago</td></tr></tbody></table></div>
+<h3 class="sub">Intereses y opiniones</h3>
+<div class="grid"><div class="c" data-i="heart"><h3>Cultura y valores</h3><p>Autocuidado, constancia, salud e inclusión.</p></div><div class="c" data-i="phone"><h3>Costumbres y modas</h3><p>Celular para todo, wearables, IA y gamificación.</p></div><div class="c" data-i="target"><h3>Motivos de compra</h3><p>Tener todo en un lugar, personalización y respaldo profesional.</p></div><div class="c" data-i="lock"><h3>Actitud ante los datos</h3><p>Muy sensibles a la privacidad de su información de salud.</p></div><div class="c" data-i="pulse"><h3>Estilo de vida</h3><p>Activo, conectado y con poco tiempo para manejar varias apps.</p></div></div></section>
+
+<section id="presentacion" class="rv"><h2>Presentación y <em>planes</em></h2>
+<p class="df"><b>Definición.</b> La forma de presentación une al producto con el usuario y influye en los costos. Como la leche pasteurizada, que cambia de precio en botella, bolsa o caja, IntegraFit cambia de precio y valor según el plan. Al ser digital, no tiene empaque: su presentación es el canal de acceso y el plan.</p>
+<figure class="shot"><div class="trio" id="trio" aria-hidden="true"></div><figcaption>Interfaz de IntegraFit (prototipo): entrenamiento, alimentación y progreso conectados. Disponible en app iOS, Android y web.</figcaption></figure>
+<div class="grid">
+<div class="pl"><h3>Gratuito</h3><div class="pr">$0 <small>COP</small></div><p class="pa">Para empezar sin costo</p><ul><li>Registro de entrenamiento y alimentación</li><li>Catálogo de ejercicios</li><li>Metas y logros</li></ul></div>
+<div class="pl h"><h3>Premium</h3><div class="pr">$19.900 <small>/ mes</small></div><p class="pa">o $199.000 al año (ahorras cerca del 17%)</p><ul><li>Todo el plan gratuito</li><li>Recomendaciones con IA</li><li>Asistente conversacional</li></ul></div>
+<div class="pl"><h3>Con profesional</h3><div class="pr">$59.900 <small>/ mes</small></div><p class="pa">Incluye Premium y seguimiento remoto</p><ul><li>Todo Premium</li><li>Entrenador, nutricionista o fisio</li><li>Mensajes y planes asignados</li></ul></div>
+<div class="pl"><h3>Corporativo</h3><div class="pr">Desde $12.900 <small>/ usuario al mes</small></div><p class="pa">Gimnasios: valor por convenio</p><ul><li>Empresas y gimnasios</li><li>Panel, retos y reportes</li><li>Indicadores anónimos</li></ul></div></div>
+<p class="note" style="margin-top:20px">Precios mensuales referenciales en pesos colombianos (COP), por usuario. Se ajustan con el estudio de mercado y de costos.</p></section>
+
+<section id="composicion" class="rv"><h2>Composición y <em>restricciones</em></h2>
+<p class="df"><b>Definición.</b> Identificar los componentes sirve para conocer el mercado de los insumos: precios, si son nacionales o importados, restricciones legales y forma de suministro. En un servicio digital, son componentes tecnológicos y humanos.</p>
+<div class="grid"><div class="c" data-i="ai"><h3>Motor de IA</h3><p>Proveedor externo por licencia de API; generalmente extranjero, con costo en dólares.</p></div><div class="c" data-i="cloud"><h3>Nube</h3><p>Servidores y almacenamiento con acuerdo de servicio (SLA); generalmente extranjero.</p></div><div class="c" data-i="apple"><h3>Base nutricional</h3><p>Licencia o suscripción a una base de alimentos especializada.</p></div><div class="c" data-i="plug"><h3>Integraciones</h3><p>APIs de wearables y pasarelas de pago, según términos de cada proveedor.</p></div><div class="c" data-i="pro"><h3>Profesionales</h3><p>Entrenadores, nutricionistas y fisios vinculados con acuerdos firmados.</p></div></div>
+<h3 class="sub">Restricción clave: rigor con los datos</h3>
+<p class="note">Peso, lesiones, sueño y estrés son datos sensibles de salud, así que su tratamiento debe ser riguroso. Es el módulo 7 de la EDT ($15.000.000 COP). Como la IA y la nube están fuera del país, también se cuida la transferencia internacional.</p>
+<div class="grid" style="margin-top:20px"><div class="c" data-i="check"><h3>Consentimiento</h3><p>Autorización clara, previa y revocable desde la app.</p></div><div class="c" data-i="law"><h3>Ley 1581 de 2012</h3><p>Habeas data, supervisado por la SIC.</p></div><div class="c" data-i="lock"><h3>Cifrado y acceso</h3><p>Datos cifrados, autenticación y copias de seguridad.</p></div><div class="c" data-i="audit"><h3>Auditoría externa</h3><p>Revisión antes del lanzamiento y corrección de fallas.</p></div></div></section>
+
+<section id="fisicas" class="rv"><h2>Características <em>físicas</em></h2>
+<p class="df"><b>Definición.</b> Tradicionalmente: tamaño, color, peso, textura, olor, sabor o perecibilidad. IntegraFit es un servicio digital, así que se describen sus equivalentes técnicos.</p>
+<div class="tw"><table><thead><tr><th>Característica</th><th>En IntegraFit</th></tr></thead><tbody>
+<tr><td>Tamaño y peso</td><td>Megabytes de la app, espacio mínimo en el celular y conexión a internet</td></tr>
+<tr><td>Color y apariencia</td><td>Tema oscuro con acentos verde neón y alto contraste accesible</td></tr>
+<tr><td>Compatibilidad</td><td>iOS, Android y navegador web</td></tr>
+<tr><td>Idioma</td><td>Español, ampliable a otros</td></tr>
+<tr><td>Perecibilidad</td><td>Las recomendaciones de la IA pierden utilidad si el modelo y los datos del usuario no se actualizan</td></tr></tbody></table></div></section>
+
+<section id="costos" class="rv">
+  <h2>Hosting y <em>nube</em></h2>
+  <p class="note" style="margin-bottom:22px">Estimación mensual referencial para 1.000 usuarios, con TRM de $4.000. Se debe confirmar en las calculadoras de AWS, Google Cloud o Firebase antes de presentar.</p>
+  <div class="tw"><table><thead><tr><th>Rubro</th><th>Qué cubre</th><th>USD / mes</th></tr></thead><tbody>
+  <tr><td>Servidor y base de datos</td><td>Funcionamiento y datos de usuarios</td><td>80 – 200</td></tr>
+  <tr><td>Almacenamiento</td><td>Videos e imágenes de ejercicios</td><td>20 – 60</td></tr>
+  <tr><td>Notificaciones</td><td>Recordatorios y mensajería</td><td>0 – 25</td></tr>
+  <tr><td>API de IA</td><td>Recomendaciones y chatbot (por uso)</td><td>100 – 400</td></tr>
+  <tr><td>Base de datos nutricional</td><td>Licencia de alimentos</td><td>50 – 150</td></tr>
+  <tr><td>Monitoreo y respaldo</td><td>Seguimiento y copias</td><td>20 – 50</td></tr>
+  <tr class="tot"><td>Total estimado</td><td>≈ $1.080.000 – $3.540.000 COP</td><td>270 – 885</td></tr></tbody></table></div>
+  <p class="note" style="margin-top:14px">Tiendas: Apple USD 99 al año y Google Play USD 25 una sola vez, aproximadamente.</p>
+</section>
+
+<section id="producto" class="rv"><h2>El <em>producto</em></h2>
+<p class="df"><b>Definición.</b> Es el bien o servicio que se obtiene y se estudia comercialmente porque satisface una necesidad. Se divide en principal, derivados, sustitutos y complementarios.</p>
+<div class="grid">
+<div class="c" data-i="phone"><h3>Principal</h3><p>Es la razón de ser del proyecto y su fuente de ingresos. Aquí: la <b>plataforma IntegraFit</b> (app y web) con IA y profesionales.</p></div>
+<div class="c" data-i="layers"><h3>Derivados</h3><p>Se obtienen usando la infraestructura de la plataforma: planes B2B, convenios con gimnasios, reportes de bienestar, biblioteca de recetas y pauta de marcas deportivas.</p></div>
+<div class="c" data-i="swap"><h3>Sustitutos</h3><p>Pueden reemplazarlo y competir por cambios de precio, calidad o tecnología: MyFitnessPal, Strava, Nike Training Club, entrenador presencial y contenido gratis en redes.</p></div>
+<div class="c" data-i="puzzle"><h3>Complementarios</h3><p>Indispensables para que funcione y con oferta suficiente en el mercado: celular, internet, wearables, profesionales de la salud, pasarela de pago, nube e IA. No requiere un proyecto complementario.</p></div></div></section>
+
+<section id="proyecto" class="rv">
+  <h2>Proyecto y <em>presupuesto</em></h2>
+  <div class="stat"><div><div class="big">$155M</div><small>COP, presupuesto total</small></div><div><div class="big">9</div><small>módulos en la EDT</small></div><div><div class="big">81</div><small>actividades</small></div></div>
+  <div class="bud" id="bud"></div>
+</section>
+
+<section id="contacto" class="ct rv">
+  <svg class="mk" viewBox="0 0 100 100" aria-hidden="true"><use href="#mark"/></svg>
+  <h2>Hablemos de <em>IntegraFit</em></h2>
+  <p>Daniel Esteban Cubillos Castiblanco<br>Gerente del Proyecto</p>
+  <a class="btn f" href="#manual" style="margin-top:22px">Volver al manual</a>
+</section>
+<footer><svg class="mk" viewBox="0 0 100 100" aria-hidden="true"><use href="#mark"/></svg><span>IntegraFit · Universidad Cooperativa de Colombia · Formulación de Proyectos 2026</span></footer>
+
+<script>
+/* iconos en tarjetas */
+document.querySelectorAll('[data-i]').forEach(el=>{el.insertAdjacentHTML('afterbegin',`<span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-${el.dataset.i}"/></svg></span>`)});
+
+/* telefonos del prototipo */
+const phone=h=>`<div class="ph"><i class="nt"></i><div class="sc">${h}</div></div>`;
+const ico=n=>`<svg class="ic"><use href="#i-${n}"/></svg>`;
+const rg=(p,c,l)=>`<div class="rgw"><div class="rg" style="--t:${p};--c:${c}"><em>${p}%</em></div><small>${l}</small></div>`;
+const tb=a=>`<div class="tb">${['home','dumbbell','apple','ai','user'].map((n,k)=>`<span class="${k===a?'on':''}">${ico(n)}</span>`).join('')}</div>`;
+const tg=(t,on)=>`<div class="tgl"><span>${t}</span><u class="${on?'on':''}"></u></div>`;
+const S=[
+()=>`<div class="ctr"><svg class="mk sm" viewBox="0 0 100 100"><use href="#mark"/></svg><b class="h">Crear cuenta</b></div><div class="fld">correo@ejemplo.com</div><div class="fld">••••••••••</div><div class="otp"><i>4</i><i>8</i><i>2</i><i>1</i></div><div class="chk"><i></i>Acepto términos y política de privacidad</div><div class="bt">Crear cuenta</div>`,
+()=>`<div class="h">Tu perfil</div><div class="li"><span>Edad</span><b>28</b></div><div class="li"><span>Estatura</span><b>1,75 m</b></div><div class="li"><span>Peso</span><b>72 kg</b></div><div class="h2">Objetivo</div><div class="chips"><span>Bajar de peso</span><span class="on">Ganar músculo</span><span>Resistencia</span><span>Mejorar hábitos</span></div><div class="fld">Lesiones, alergias o discapacidad</div><div class="bt">Guardar perfil</div>`,
+()=>`<div class="h">Hola, Daniel</div><div class="rgs">${rg(78,'#c6ff2e','Actividad')}${rg(55,'#39ff88','Calorías')}${rg(90,'#9a7cff','Agua')}</div><div class="ai"><b>IA:</b> dormiste 5 h. Hoy toca entreno suave y más proteína en la cena.</div><div class="bars"><i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:85%"></i><i style="height:70%"></i><i style="height:95%"></i><i style="height:60%"></i></div><div class="row"><span>Racha</span><b>6 días</b></div>${tb(0)}`,
+()=>`<div class="h">Entrenamiento</div><div class="li"><span>Sentadilla</span><b>4 × 10</b></div><div class="li"><span>Press de banca</span><b>4 × 8</b></div><div class="li"><span>Remo</span><b>3 × 12</b></div><div class="prog"><i style="width:68%"></i></div><div class="row"><span>Descanso</span><b>00:45</b></div><div class="bt warn">Reportar molestia</div>${tb(1)}`,
+()=>`<div class="h">Alimentación</div><div class="li"><span>Desayuno</span><b>420 kcal</b></div><div class="li"><span>Almuerzo</span><b>650 kcal</b></div><div class="mc"><span>Proteína</span><div class="prog"><i style="width:62%"></i></div></div><div class="mc"><span>Carbohidratos</span><div class="prog"><i style="width:48%"></i></div></div><div class="mc"><span>Grasas</span><div class="prog"><i style="width:35%"></i></div></div><div class="chips"><span>Agua 1,5 L</span><span>Sueño 7 h</span><span>Estrés bajo</span></div>${tb(2)}`,
+()=>`<div class="h">Asistente IA</div><div class="bub me">Dormí poco, ¿entreno igual?</div><div class="bub ia">Dormiste 5 h. Hoy toca entreno suave y más proteína en la cena.<small>Por qué: tu sueño y tu carga de la semana.</small></div><div class="acts"><span>Aplicar</span><span>Descartar</span><span>Consultar</span></div>${tb(3)}`,
+()=>`<div class="h">Profesionales</div><div class="pro"><span class="av">NU</span><div><b>Nutricionista</b><small>Seguimiento remoto</small></div></div><div class="pro"><span class="av">EN</span><div><b>Entrenador</b><small>Plan asignado</small></div></div><div class="bt">Solicitar vínculo</div><div class="h2">Dispositivos</div><div class="li"><span>Reloj o pulsera</span><b class="okc">Conectado</b></div>${tg('Compartir mis datos',true)}${tb(4)}`,
+()=>`<div class="h">Accesibilidad</div>${tg('Alto contraste',true)}${tg('Texto grande',true)}${tg('Lector de pantalla',false)}${tg('Subtítulos',true)}${tg('Rutinas adaptadas',true)}<div class="h2">Privacidad</div><div class="acts"><span>Exportar</span><span>Eliminar</span></div>${tb(4)}`
+];
+document.getElementById('heroPhone').outerHTML=phone(S[2]());
+document.getElementById('trio').innerHTML=phone(S[3]())+phone(S[2]())+phone(S[4]());
+
+/* manual */
+const steps=[
+["1. Crea tu cuenta","Descarga la app o entra por web.",["Toca <b>Crear cuenta</b> con tu correo y una contraseña segura.","Escribe el código de verificación que llega al correo.","Acepta términos y política de privacidad: tu consentimiento es libre e informado (Ley 1581)."]],
+["2. Tu perfil y objetivo","Entre más completo, mejores recomendaciones.",["Ingresa edad, estatura, peso y nivel de actividad.","Indica lesiones, alergias o discapacidad para adaptar la app.","Elige tu objetivo: bajar de peso, ganar músculo, resistencia o mejorar hábitos."]],
+["3. Inicio","Tu resumen del día en una pantalla.",["Anillos de progreso de actividad, calorías y agua.","Metas de hoy, racha y recomendación de la IA.","Barra inferior: Inicio, Entrenamiento, Alimentación, Asistente IA y Perfil."]],
+["4. Entrenamiento","Rutinas, ejercicios y progreso.",["Explora el catálogo con imagen o video y crea tu rutina, o elige una sugerida por la IA.","Registra series, repeticiones y peso; usa el cronómetro de descanso.","Si sientes dolor toca <b>Reportar molestia</b>: llega a la IA y a tu profesional.","Mira tus gráficas, metas, insignias y rachas."]],
+["5. Alimentación y bienestar","Come, duerme e hidrátate con datos.",["Busca alimentos en la base nutricional y registra la porción.","La calculadora estima tus calorías y macronutrientes (es una guía, no un diagnóstico).","Anota agua, sueño y estrés; revisa reportes y recetas."]],
+["6. Asistente IA","Pregunta y recibe respuestas con tus datos.",["Escribe, por ejemplo: <b>“Dormí poco, ¿entreno igual?”</b>","Cada recomendación explica por qué se generó: aplícala, descártala o consúltala con tu profesional.","La IA no diagnostica ni reemplaza a un profesional. Disponible en Premium."]],
+["7. Profesional y wearable","Acompañamiento real y datos automáticos.",["En <b>Perfil → Profesionales</b> solicita vincularte con un entrenador o nutricionista.","Tú decides qué datos comparte y puedes desvincularlo.","En <b>Perfil → Dispositivos</b> conecta tu reloj o pulsera y autoriza los datos."]],
+["8. Accesibilidad y privacidad","La app es para todas las personas.",["En <b>Perfil → Accesibilidad</b>: alto contraste, texto grande, lector de pantalla, subtítulos y rutinas adaptadas.","En <b>Perfil → Privacidad</b>: conoce, corrige, exporta o elimina tus datos.","Cambia o cancela tu plan en <b>Mi plan</b>."]]];
+const tl=document.getElementById('tl'),tp=document.getElementById('tp');
+function show(i){[...tl.children].forEach((b,j)=>{b.classList.toggle('on',i===j);b.setAttribute('aria-selected',i===j)});
+const s=steps[i];tp.innerHTML=`<div><h3>${s[0]}</h3><p>${s[1]}</p><ol>${s[2].map(x=>`<li>${x}</li>`).join('')}</ol></div><div class="pw" aria-hidden="true">${phone(S[i]())}</div>`}
+steps.forEach((s,i)=>{const b=document.createElement('button');b.textContent=s[0];b.setAttribute('role','tab');b.onclick=()=>show(i);tl.appendChild(b)});show(0);
+
+/* presupuesto */
+const bud=[["Diseño y arquitectura",15],["Módulo de entrenamiento",22],["Alimentación y bienestar",18],["Motor de IA",30],["Profesionales de la salud",10],["Accesibilidad e inclusión",12],["Seguridad y datos",15],["Pruebas, lanzamiento y marketing",20],["Gestión del proyecto",13]];
+document.getElementById('bud').innerHTML=bud.map(b=>`<div><span>${b[0]}</span><span class="trk"><i style="--w:${b[1]/30*100}%"></i></span><span>$${b[1]}.000.000</span></div>`).join('');
+
+/* revelado, barra de progreso y brillo */
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const bar=document.getElementById('bar'),g=document.getElementById('glow');
+addEventListener('scroll',()=>{bar.style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+'%'},{passive:true});
+addEventListener('pointermove',e=>{g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'},{passive:true});
+
+/* tema */
+document.getElementById('th').onclick=()=>{const r=document.documentElement,n=r.dataset.theme==='light'?'dark':'light';r.dataset.theme=n;try{localStorage.setItem('if-theme',n)}catch(e){}};
+</script>
+</body>
+</html>
